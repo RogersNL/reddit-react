@@ -10,7 +10,7 @@ function NewPostForm(props){
 
   function handleNewPostFormSubmit(event) {
     event.preventDefault();
-    props.onNewPostCreation({name: _name.value, postTitle: _postTitle.value, post: _post.value, id: v4()});
+    props.onNewPostCreation({name: _name.value, postTitle: _postTitle.value, post: _post.value, upvotes: 0, downvotes: 0, id: v4()});
     _name.value = '';
     _postTitle.value = '';
     _post.value = '';

@@ -19,13 +19,18 @@ class App extends React.Component {
     newMasterPostList.push(newPost);
     this.setState({masterPostList: newMasterPostList});
   }
+  handleAddingUpvotes(){
+    alert("up");
+  }
   render(){
     return (
       <div>
         <Header/>
         <div className="container">
           <Switch>
-            <Route exact path='/' render={()=><PostList postList={this.state.masterPostList} />} />
+            <Route exact path='/' render={()=><PostList postList={this.state.masterPostList}
+            onAddingUpvotes={this.handleAddingUpvotes}
+            />} />
             <Route path='/newpost' render={()=><NewPostControl onNewPostCreation={this.handleAddingNewPostToList} />} />
             <Route component={Error404} />
           </Switch>

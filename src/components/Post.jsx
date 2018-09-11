@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Post(props){
+
   return (
     <div>
       <div className="card">
@@ -12,8 +13,8 @@ function Post(props){
             <p>{props.post}</p>
           </div>
           <div className="col-md-2">
-            <p>Upvotes: {props.upvotes}</p>
-            <p>Downvotes: {props.downvotes}</p>
+            <p> <button onClick={props.onAddingUpvotes} className="btn btn-success">↑</button> {props.upvotes}</p>
+            <p> <button className="btn btn-danger">↓</button> {props.downvotes}</p>
           </div>
         </div>
       </div>
@@ -25,7 +26,8 @@ Post.propTypes = {
   postTitle: PropTypes.string.isRequired,
   post: PropTypes.string.isRequired,
   upvotes: PropTypes.number.isRequired,
-  downvotes: PropTypes.number.isRequired
+  downvotes: PropTypes.number.isRequired,
+  onAddingUpvotes: PropTypes.func
 };
 
 export default Post;

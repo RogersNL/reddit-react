@@ -10,8 +10,9 @@ function PostList(props){
         <Post name={currentPost.name}
           postTitle={currentPost.postTitle}
           post={currentPost.post}
-          upvotes=0
-          downvotes=0
+          upvotes={currentPost.upvotes}
+          downvotes={currentPost.downvotes}
+          onAddingUpvotes={props.onAddingUpvotes}
           key={currentPost.id}/>
       )}
     </div>
@@ -19,6 +20,7 @@ function PostList(props){
 }
 
 PostList.propTypes = {
-  postList: PropTypes.array
+  postList: PropTypes.array,
+  onAddingUpvotes: PropTypes.func
 };
 export default PostList;
