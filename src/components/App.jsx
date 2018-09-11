@@ -20,7 +20,14 @@ class App extends React.Component {
     this.setState({masterPostList: newMasterPostList});
   }
   handleAddingUpvotes(id){
-    alert(id);
+    let currentPost = null;
+    console.log(this.state.masterPostList);
+    // for(let i = 0; i < this.state.masterPostList.length; i++){
+    //   if(this.state.masterPostList[i].id === id){
+    //     currentPost = clickedPost;
+    //   }
+    // }
+    // console.log(currentPost);
   }
   handleAddingDownvotes(id){
     alert(id);
