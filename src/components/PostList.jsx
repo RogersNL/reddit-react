@@ -12,6 +12,7 @@ function PostList(props){
           post={currentPost.post}
           upvotes={currentPost.upvotes}
           downvotes={currentPost.downvotes}
+          id={currentPost.id}
           onAddingUpvotes={props.onAddingUpvotes}
           onAddingDownvotes={props.onAddingDownvotes}
           key={currentPost.id}/>

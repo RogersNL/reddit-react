@@ -19,11 +19,11 @@ class App extends React.Component {
     newMasterPostList.push(newPost);
     this.setState({masterPostList: newMasterPostList});
   }
-  handleAddingUpvotes(){
-    alert("up");
+  handleAddingUpvotes(id){
+    alert(id);
   }
-  handleAddingDownvotes(){
-    alert("down");
+  handleAddingDownvotes(id){
+    alert(id);
   }
 
   render(){

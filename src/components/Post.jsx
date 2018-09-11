@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 
 function Post(props){
 
+  function handlePassingIdForUpvote(){
+    props.onAddingUpvotes(props.id);
+  }
+  function handlePassingIdForDownvote(){
+    props.onAddingDownvotes(props.id);
+  }
   return (
     <div>
       <div className="card">
@@ -13,8 +19,8 @@ function Post(props){
             <p>{props.post}</p>
           </div>
           <div className="col-md-2">
-            <p> <button onClick={props.onAddingUpvotes} className="btn btn-success">↑</button> {props.upvotes}</p>
-            <p> <button onClick={props.onAddingDownvotes} className="btn btn-danger">↓</button> {props.downvotes}</p>
+            <p> <button onClick={handlePassingIdForUpvote} className="btn btn-success">↑</button> {props.upvotes}</p>
+            <p> <button onClick={handlePassingIdForDownvote} className="btn btn-danger">↓</button> {props.downvotes}</p>
           </div>
         </div>
       </div>
@@ -27,6 +33,7 @@ Post.propTypes = {
   post: PropTypes.string.isRequired,
   upvotes: PropTypes.number.isRequired,
   downvotes: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   onAddingUpvotes: PropTypes.func,
   onAddingDownvotes: PropTypes.func
 };
