@@ -14,7 +14,7 @@ function Post(props){
           </div>
           <div className="col-md-2">
             <p> <button onClick={props.onAddingUpvotes} className="btn btn-success">↑</button> {props.upvotes}</p>
-            <p> <button className="btn btn-danger">↓</button> {props.downvotes}</p>
+            <p> <button onClick={props.onAddingDownvotes} className="btn btn-danger">↓</button> {props.downvotes}</p>
           </div>
         </div>
       </div>
@@ -27,7 +27,8 @@ Post.propTypes = {
   post: PropTypes.string.isRequired,
   upvotes: PropTypes.number.isRequired,
   downvotes: PropTypes.number.isRequired,
-  onAddingUpvotes: PropTypes.func
+  onAddingUpvotes: PropTypes.func,
+  onAddingDownvotes: PropTypes.func
 };
 
 export default Post;

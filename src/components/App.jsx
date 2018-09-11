@@ -22,6 +22,10 @@ class App extends React.Component {
   handleAddingUpvotes(){
     alert("up");
   }
+  handleAddingDownvotes(){
+    alert("down");
+  }
+
   render(){
     return (
       <div>
@@ -30,6 +34,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' render={()=><PostList postList={this.state.masterPostList}
             onAddingUpvotes={this.handleAddingUpvotes}
+            onAddingDownvotes={this.handleAddingDownvotes}
             />} />
             <Route path='/newpost' render={()=><NewPostControl onNewPostCreation={this.handleAddingNewPostToList} />} />
             <Route component={Error404} />
