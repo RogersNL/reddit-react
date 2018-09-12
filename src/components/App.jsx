@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import PostList from './PostList';
 import NewPostControl from './NewPostControl';
 import Error404 from './Error404';
+import Moment from 'moment';
 
 class App extends React.Component {
 
@@ -21,6 +22,7 @@ class App extends React.Component {
   }
   handleAddingNewPostToList(newPost){
     var newMasterPostList = this.state.masterPostList.slice();
+    newPost.formattedPostTime = (newPost.timePosted).fromNow(true);
     newMasterPostList.push(newPost);
     this.setState({masterPostList: newMasterPostList});
   }
@@ -56,7 +58,6 @@ class App extends React.Component {
     }
   }
   handleMergingArrays(leftArray, rightArray, fullArray){
-    console.log(fullArray);
     let i = 0;
     let j = 0;
     let k = 0;
@@ -80,13 +81,31 @@ class App extends React.Component {
       j++;
       k++;
     }
-    console.log(fullArray);
     return fullArray;
   }
   handleAutoSorting(){
     var newMasterPostList = this.state.masterPostList.slice();
     let sortedPostList = this.handleSortingPosts(newMasterPostList);
     this.setState({masterPostList: newMasterPostList});
+  }
+  componentDidMount() {
+    this.postTimeUpdateTimer = setInterval(() =>
+      {
+      this.updatePostElapsedPostTime();
+      this.handleAutoSorting();
+    },
+      5000
+    );
+  }
+  updatePostElapsedPostTime() {
+    let newMasterPostList = this.state.masterPostList.slice();
+    newMasterPostList.forEach((post) =>
+      post.formattedPostTime = (post.timePosted).fromNow(true)
+    );
+    this.setState({masterPostList: newMasterPostList})
+  }
+  componentWillUnmount(){
+    clearInterval(this.postTimeUpdateTimer);
   }
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'moment';
 
 function Post(props){
 
@@ -15,7 +16,7 @@ function Post(props){
         <h2 className="card-title">{props.postTitle}</h2>
         <div className="card-body row">
           <div className="col-md-10">
-            <p>Post by: {props.name}</p>
+            <p>Post by: {props.name} - {props.formattedPostTime} ago</p>
             <p>{props.post}</p>
           </div>
           <div className="col-md-2">
@@ -27,6 +28,11 @@ function Post(props){
     </div>
   );
 }
+
+function displayTimePosted(timePosted) {
+  return timePosted.from(new Moment(), true);
+}
+
 Post.propTypes = {
   name: PropTypes.string.isRequired,
   postTitle: PropTypes.string.isRequired,
@@ -34,6 +40,7 @@ Post.propTypes = {
   upvotes: PropTypes.number.isRequired,
   downvotes: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
+  formattedPostTime: PropTypes.string.isRequired,
   onAddingUpvotes: PropTypes.func,
   onAddingDownvotes: PropTypes.func
 };
