@@ -6,6 +6,7 @@
 ## Made By
 
   * Nick Rogers  
+  * Swati Sahay
 
 ## Description
 
@@ -25,6 +26,7 @@ A site that allows users to post and vote in a Reddit-like format.
 
 For any questions or support details, please email:
   * amellocello@msn.com  
+  * swatiranjan0111@gmail.com
 
 
 ## Spec
@@ -35,7 +37,7 @@ For any questions or support details, please email:
 
 ## MIT License
 
-Copyright (c) 2018 **Nick Rogers**
+Copyright (c) 2018 **Nick Rogers, Swati Sahay**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
